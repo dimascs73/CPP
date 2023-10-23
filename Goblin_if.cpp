@@ -15,7 +15,7 @@ int fist_damage = 3;
 do
 
 {
-    cout<<"Attack Goblin (F)ist or (S)word:"; 
+    cout<<"Attack Goblin (F)ist or (S)word or run away(Q):"; 
     action = getchar();
     if (action == 's' || action == 'S')
     {
@@ -36,6 +36,12 @@ do
     cout<<"You have "<<your_gold<<" gold."<<endl; 
     break;
     }
+    else if (action == 'q' || action == 'Q')
+    {
+        cout<<"You run away."<<endl;
+        break;
+    }
+    
 } while (action != 'q' && goblin_hp > 0|| action != 'Q' && goblin_hp > 0);
  
 
