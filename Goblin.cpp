@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio>
 
 using namespace std;
 
@@ -6,62 +7,55 @@ using namespace std;
 int main() {
 
 char action;
-int goblin_hp = 15;
-int goblin_gold = 5;
-int your_gold = 0;
-int sword_damage = 5;
-int fist_damage = 3;
 
-cout<<"Attack Goblin (F)ist or (S)word:";
+cout<<"Start (N)ew game\n"
+      "(L)oad game\n"
+      "(O)ptions\n"
+      "E(x)it\n";
+
 
 action = getchar();
 
-do
-
-{
     switch (action)
     {
-    case 's':
-        cout<<"You hit Goblin with sword and deal "<< sword_damage<<" HP damage"<<endl;
-        goblin_hp = goblin_hp - sword_damage;
-        if (goblin_hp > 0)
-        {
-            cout<<"Goblin have "<<goblin_hp<<" HP left\n";
-        }
-        else 
-        break;
-    case 'S':
-        cout<<"You hit Goblin with sword and deal "<< sword_damage<<" HP damage"<<endl;
-        goblin_hp = goblin_hp - sword_damage;
-        cout<<"Goblin have "<<goblin_hp<<" HP left\n";
-        
+    case 'n':
+        cout<<"You start new game"<<endl;
         break;
 
-    case 'f':
-        goblin_hp = goblin_hp - fist_damage;
-        cout<<"You hit Goblin with fist and deal "<< fist_damage<<" HP damage"<<endl;
-        cout<<"Goblin have "<<goblin_hp<<" HP left\n";    
+        case 'N':
+        cout<<"You start new game"<<endl;
         break;
 
-    case 'F':
-        goblin_hp = goblin_hp - fist_damage;
-        cout<<"You hit Goblin with fist and deal "<< fist_damage<<" HP damage"<<endl;
-        cout<<"Goblin have "<<goblin_hp<<" HP left\n";
+    case 'l':
+        cout<<"You load exicting game"<<endl;
         break;
+
+        case 'L':
+        cout<<"You load exicting game"<<endl;
+        break;
+
+    case 'o':
+        cout<<"Choose game options"<<endl;
+        break;
+
+        case 'O':
+        cout<<"Choose game options"<<endl;
+        break;
+
+    case 'x':
+        cout<<"You quit game"<<endl;
+        break;
+            
+    case 'X':
+        cout<<"You quit game"<<endl;
+        break;
+
 
     default:
         break;
     }
-    
- } while (goblin_hp >=  0);
+    system("pause");
 
- your_gold = your_gold + goblin_gold;
-
- cout<<"Golin is dead. You get "<<goblin_gold<<" gold."<<endl;
- cout<<"You have "<<your_gold<<" gold."<<endl;  
-   
-
-
-    return 0;
+     return 0;
 
 }
