@@ -1,59 +1,50 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
+
 
 class MyClass
 {
 private:
-    int ID;
+    
     string LastName;
-    char FirstName;
-    char MiddleName;
+    string FirstName;
+    string MiddleName;
+    int ID;
     
 
 public:
-    
+
     static int Count;
 
-    MyClass(int ID, string LastName, char FirstName, char MiddleName){
-        this ->ID = ID;
+    MyClass(string LastName, string FirstName, string MiddleName){
+        
         this -> LastName = LastName;
         this ->FirstName = FirstName;
         this ->MiddleName = MiddleName;
         Count++;
+        ID = Count+2;
+    }
 
+    int getID(){
+        return ID;     
     }
 
     void Person(){
-        ID = ID + Count;
-        cout<<"ID:0000"<<ID<<'\t'<<LastName<<' '<<FirstName<<'.'<<MiddleName<<'.'<<endl;
+        
+        cout<<"ID:0000"<<ID<<"  "<<LastName<<' '<<FirstName<<' '<<MiddleName<<' '<<endl;
     }
 
-//    ~MyClass();
 };
 
 int MyClass::Count = 0;
 
-/*MyClass::MyClass(int ID, string LastName, char FirstName, char MiddleName)
-{
-    ID = ID+Count;
-    
-    cout<<ID<<'\t'<<LastName<<' '<<FirstName<<'.'<<MiddleName<<'.'<<endl;
-
-}*/
-/*
-MyClass::~MyClass()
-{
-}
-*/
-
-
-
 int main() {
-setlocale(LC_ALL, "ru");
+setlocale (LC_ALL, "ru");
 
-MyClass Ivanov (1, "Ivanov",'I','I');
-MyClass Petrov (2, "Petrov", 'R', 'P');
+MyClass Ivanov ("Иванов", "Иван", "Иванович");
+MyClass Petrov ("Петров", "Петр", "Петрович");
 
 //MyClass::Count;
 
@@ -62,7 +53,7 @@ Petrov.Person();
 
 cout<<MyClass::Count<<endl;
 
-
+system ("pause"); 
     return 0;
 
 }

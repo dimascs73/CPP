@@ -33,8 +33,9 @@ do
     if (goblin_hp <=  0) {
     your_gold = your_gold + goblin_gold;
     cout<<"Golin is dead. You get "<<goblin_gold<<" gold."<<endl;
-    cout<<"You have "<<your_gold<<" gold."<<endl; 
-    break;
+    cout<<"You have "<<your_gold<<" gold."<<endl;
+    cout<<"You see another goblin";
+    goblin_hp = 15;
     }
     else if (action == 'q' || action == 'Q')
     {
