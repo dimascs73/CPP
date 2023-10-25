@@ -21,28 +21,18 @@ int main()
     const int size = 3;
     int arg[size];
 
-   mass_input(size, arg);
+   mass_input(size, arg); //вводим массив
       
       // делаем перестановки
-
-    for (int k = size -1; k > 0 ; k--)
+    int tmp = 0;
+    for (int j = 0; j < size -1 ; j++)
     {
-      for (int i = size -1 ; i > 0; i--){ 
-        int tmp = 0;
-        int j = 0;
-        for (; j < size - 1; j++){             
-            tmp = arg[j];
-            arg[j] = arg[j+1];
-            arg[j+1] = tmp;
-            cout<<arg[j]<<'\t';
-           }
-            arg[i] = tmp;
-            cout<<arg[j]<<'\t'<<endl;
-            }
-                       
-            cout<<endl;
-           
-     } 
+      tmp = arg[j];
+      arg[j] = arg[j+1];
+      cout<<*arg<<endl;
+    }
+    
+    
            
         
     system ("pause");
