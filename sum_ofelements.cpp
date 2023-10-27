@@ -15,7 +15,8 @@ int main(){
     A.resize(N);
     for (int i = 0; i < A.size(); i++)
     {
-        A[i] = rand() % 10;
+        A[i] = i+1;
+        //A[i] = rand() % 10;
         cout<<A[i]<<'\t';
     }
     cout<<endl;
