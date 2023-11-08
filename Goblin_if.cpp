@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ do
 
 {
     cout<<"Attack Goblin (F)ist or (S)word or run away(Q):"; 
-    action = getchar();
+    action = getch();
     if (action == 's' || action == 'S')
     {
         cout<<"You hit Goblin with sword and deal "<< sword_damage<<" HP damage"<<endl;
