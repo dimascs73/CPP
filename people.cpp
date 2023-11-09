@@ -43,6 +43,7 @@ ag_count.clear();
 
 // ввод данных
 
+
 /* for (int i = 0; i < SIZE; i++)
 {
     
