@@ -9,16 +9,15 @@ int main()
 
    cin>>x>>y;
 
-   double y_big = x + 7;
-   double y2_small = x - 2;
+   double y_left = x + 6;
+   double y_right = x - 3;
+   double y_up = x + 5;
+   double y_down = - x - 7;
 
-   if ((x >= -7 && x <= 0) && (y >= 0 && y <=7) && (y <= y_big))
+   if (y >= y_left && y <= y_right && y >= y_down && y <= y_up)
    {
         cout<<"Inside";
-   }
-    else if ((x >= 0 && x <= 2) && (y >= -2 && y <= 0) && (y >= y2_small))
-   {    
-        cout<<"Inside";
+   
    }
    else {cout<<"Outside";}
 
