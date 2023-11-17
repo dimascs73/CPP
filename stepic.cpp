@@ -1,31 +1,29 @@
 ﻿#include <iostream>
+#include <cmath>
 
 using namespace std;
 
-int main() {
-  int a;
-  int b;
-  int c;
-  int d;
-  int e;
-  
-cin>>a>>b>>c;
+int main()
+{
+   double x, y;
 
-//d = a/100;
-//e = a%10;
- a = a/10%10;
+   cin>>x>>y;
 
-d = b/100;
-e = b%10;
-b = b/10%10;
+   double y_big = x + 7;
+   double y2_small = x - 2;
 
-d = c/100;
-e = c%10;
-c = c/10%10;
-
- cout<<a*100+b*10+c;
-
-
-  return 0;
+   if (x >= -7 && x <= 2 )
+   {
+        if (y >= 0 && y <= y_big)
+        {
+            cout<<"Inside";
+        }
+        if (y >= y2_small && y<=0)
+        {
+        cout<<"Inside";
+        }
+        
+   }
+   else cout<<"Outside";
+    return 0;
 }
-
