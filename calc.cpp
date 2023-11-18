@@ -25,6 +25,9 @@ void Math_t(std::stack<Lecsema>& number, std::stack<Lecsema>& oper_ator, Lecsema
         oper_ator.pop();
         break;
     case '-':
+        
+        if (oper_ator.size() != 0)
+        {
         b = number.top().value;
         number.pop();
         c = b - a;
@@ -33,6 +36,7 @@ void Math_t(std::stack<Lecsema>& number, std::stack<Lecsema>& oper_ator, Lecsema
         number.push(item);
         oper_ator.pop();
         break;
+        }
 
     case '*':
         b = number.top().value;
@@ -60,6 +64,8 @@ void Math_t(std::stack<Lecsema>& number, std::stack<Lecsema>& oper_ator, Lecsema
             oper_ator.pop();
             break;
         }
+    case ')':
+        
 
     default:
 
@@ -71,6 +77,7 @@ void Math_t(std::stack<Lecsema>& number, std::stack<Lecsema>& oper_ator, Lecsema
 
 int Rang (char CH)
 {
+    if (CH == '(') {return 0;}
     if (CH == '+' || CH == '-') {return 1;}
     if (CH == '*' || CH == '/') {return 2;}
     else return 0;
@@ -82,6 +89,7 @@ int main() {
 
     char Ch;
     double value;
+    bool flag =1;
 
     std::stack <Lecsema> num;
     std::stack <Lecsema> oper;
@@ -97,16 +105,18 @@ int main() {
         if (Ch == '\n') {
             break;
         }
-        if (Ch >= '0' && Ch <= '9') {
+        if ((Ch >= '0' && Ch <= '9') || (Ch == '-' && flag == 1)) {
 
             std::cin >> value;
             item.type = '0';
             item.value = value;
             num.push(item);
+            flag = 0;
             continue;
 
         }
-        if (Ch == '+' || Ch == '-' || Ch == '*' || Ch == '/') {
+        if (Ch == '+' || (Ch == '-' && flag == 0) || Ch == '*' || Ch == '/' || Ch == '(') {
+            
             if  (oper.size() == 0){
             item.type = Ch;
             item.value = 0;
@@ -125,6 +135,8 @@ int main() {
             Math_t(num, oper, item);
              continue;   
             }
+            
+            
         }
 
     }

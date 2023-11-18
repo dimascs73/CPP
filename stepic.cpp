@@ -8,19 +8,16 @@ int main()
    double x, y;
 
    cin>>x>>y;
-
+  
+  double y1 = x+6;
+  double y2 = -x+5;
+  double y3 = x-3;
+  double y4 = -x-7;
    
-   if ( ((x >= -6.5 && x <= -0.5) && (y >= -0.5 && y <= 5.5)))
-    {
-    if ((x >= -2 && x <= 4) && (y >= -5 && y <=1)) 
-     {
-      if ((x >= -6.5 && x <= -2) && (y <= -0.5 && y >= -5))
-      {
-        if ((x >= -0.5 && x <= 4) && (y <= 1 && y >= 5.5))
+   if (((x <= y1) && (x >= y4) && (x <= y2 )) || ((x >= y3) && (x <= y4) && (x >= y2 )))
         {cout<<"Inside";}
-      } 
-     }
-    }
+    
+    
    else {cout<<"Outside";}
 
     return 0;
