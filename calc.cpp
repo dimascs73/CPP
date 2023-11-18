@@ -64,9 +64,7 @@ void Math_t(std::stack<Lecsema>& number, std::stack<Lecsema>& oper_ator, Lecsema
             oper_ator.pop();
             break;
         }
-    case ')':
-        
-
+   
     default:
 
         break;
@@ -115,7 +113,7 @@ int main() {
             continue;
 
         }
-        if (Ch == '+' || (Ch == '-' && flag == 0) || Ch == '*' || Ch == '/' || Ch == '(') {
+        if (Ch == '+' || (Ch == '-' && flag == 0) || Ch == '*' || Ch == '/') {
             
             if  (oper.size() == 0){
             item.type = Ch;
@@ -134,9 +132,20 @@ int main() {
             if (oper.size() !=0 && (Rang(Ch) <= Rang(oper.top().type))){
             Math_t(num, oper, item);
              continue;   
-            }
-            
-            
+            }    
+        }
+        if (Ch == '(') 
+        {
+            item.type = Ch;
+            item.value = 0;
+            oper.push(item);
+            std::cin.ignore();
+            continue;
+        }
+        if (Ch == ')') {
+        Math_t(num, oper, item);
+        std::cin.ignore();
+        oper.pop();
         }
 
     }
