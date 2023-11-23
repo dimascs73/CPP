@@ -50,10 +50,24 @@ Fun (z , t);
 Fun (z, x);
 
 
- /*    int arr [x] = {1, 2, 3, 4, 5};
+/*     int arr [x] = {3, 2, 1, 4, 5};
     int arr2 [x];
 
-    for(int i =0; i < x; i++)
+for (int a = 0; a < x; a++)
+{
+    if (a > a+1)
+    {
+        int tmp = arr[a];
+        arr[a+1] = arr[a];
+        arr[a+1] = tmp;
+    }
+    
+    
+    cout<<a<<'\n';
+
+} */
+
+/*     for(int i =0; i < x; i++)
 {
     arr2[i] = arr[i];
 }
@@ -61,8 +75,8 @@ Fun (z, x);
    for(int i =0; i < x; i++)
 {
     cout<<"Arr_2 "<<i<<":"<<arr2[i]<<"\t Arr"<<i<<":"<<arr[i]<<'\n';
-}    
- */
+}     */
+ 
 
 
     return 0;
