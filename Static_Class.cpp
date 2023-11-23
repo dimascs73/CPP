@@ -3,6 +3,8 @@
 #include <windows.h>
 #include <fstream>
 
+
+
 using namespace std;
 
 class Spisok
@@ -58,6 +60,7 @@ int Spisok::Count = 0;
 int main() {
 setlocale (LC_ALL, "ru");
 char action;
+
 
 string path = "spisok.txt";
 

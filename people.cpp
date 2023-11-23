@@ -125,6 +125,18 @@ for (int m = 0; m < SIZE; m++)
 }
 
 
+for (int x=0; x < SIZE; x++) 
+{
+    if (ag_count[x] != 0)
+    {
+        cout<< p_count[x]<<" people have "<<ag_count[x]<<" years"<<endl;
+    }
+
+}
+cout<<"__________"<<endl;
+
+
+
 // выводим людей с максимальным введенным возрастом
 
 for (int i = 0; i < SIZE; i++)
