@@ -12,9 +12,10 @@ int main()
     
     cin>>x>>y;
     
-    bool inside = y <= -3.*x - 1;
+    bool down_line = y >= -3.*x/5 - 5;
+    bool up_line = y <= -1.*x/3 + 3;
     
-    if (inside)
+    if (down_line && up_line)
     {
        std::cout<<"Inside"<<'\n';
      }
