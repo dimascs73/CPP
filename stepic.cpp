@@ -12,9 +12,12 @@ int main()
     
     cin>>x>>y;
     
-    bool down_line = y >= -3.*x/5 - 5;
-    bool up_line = y <= -1.*x/3 + 3;
+    bool down_line = y >= -.6*x - 1;
+    bool up_line = y <= 1.*x/4 + 1 ;
     
+   // double a = -.6*x - 1 ;
+   // double b = 1.*x/4 + 1;
+
     if (down_line && up_line)
     {
        std::cout<<"Inside"<<'\n';
