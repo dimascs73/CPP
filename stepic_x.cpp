@@ -11,30 +11,16 @@ int main()
     
     cin>>x>>y;
     
-    bool inside = x*x+y*y <= 5*5;
-    bool inside_1 = (x)*(x)+(y)*(y) < 9; // y < 0
-    bool teeth = (x >= -1 && x <= 1) && (y <= -2 && y >= -3); // зубы
-    bool inside_2 = (x-1.5)*(x-1.5)+(y-2)*(y-2) < 1; // правый глаз
-    bool inside_4 = (x+1.5)*(x+1.5)+(y-2)*(y-2) < 1; // левый глаз
+    bool inside = x*x+y*y <= 4*4;
+    bool line1 = (x >= 0) ; 
+    bool line2 = (x <= 3) ; 
+    
 
-    if (y >= 0)
-    {
-      if (inside && !inside_2 && !inside_4 ) 
+    if (inside && line1 && line2)
       {
         std::cout<<"Inside"<<'\n';
       }
       else std::cout<<"Outside"<<'\n';
-    
-    }
-
-    else if (y < 0)
-    {
-      if (inside && !inside_1 || teeth) {std::cout<<"Inside"<<'\n';}
-    
-    else std::cout<<"Outside"<<'\n';
-    }
-
-    else std::cout<<"Outside"<<'\n';
-    
+ 
         return 0;
-    }
+}

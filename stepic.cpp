@@ -12,13 +12,13 @@ int main()
     
     cin>>x>>y;
     
-    bool up_line = y <= -1.5*x + 7;
-    bool down_line = y >= -.5*x + 1;
-    bool up_line1 = y <= 1.5*x + 1;
-    bool down_line1 = y >= .5*x - 1;
+    bool up_line = y <= -1.5*x + 7; // справа верх
+    bool down_line = (y <= -.5*x + 1) && x >= 2; // справа низ
+    bool up_line1 = y >= 1.5*x + 1;  // слева верх
+    bool down_line1 = (y >= .5*x - 1) && x <= 2; // слева низ
     
   //  double a = 1.5*x + 1;
-    double b = x + 2;
+  //  double b = -.5*x + 1;
 
     if (down_line && up_line && up_line1 && down_line1)
     {
