@@ -54,9 +54,17 @@ int main()
            
            continue; 
         }
-       /*  if (s >=char(33) || s <= char(47) || s >= char(58)
-            || s <= char(64) || s >=char(91) || s <= char(96)
-            || s >=char(123) || s <= char(127) )
+        
+        else
+        {
+        int t = (int)s;
+        if (t >= 97 && t <= 122 || t >= 65 && t <= 90)
+        {
+             cin>>letters[flag_letter];
+            flag_letter++;
+            continue;
+        }
+        if (t >= 33 && t <= 47 || t >= 58 && t <= 64 || t >= 123 && t <= 126)
         {
             cin>>symbols[flag_symb];
             flag_symb++;
@@ -71,14 +79,9 @@ int main()
            flag_letter = 0;           
            }
             continue;
-        } */
-        
-        if (s >= char(97) || s <= char(122) || s >= char(97) || s <= char(90))
-        {
-            cin>>letters[flag_letter];
-            flag_letter++;
-            continue;
         }
+        }
+        continue;
        
         
     }
@@ -99,14 +102,14 @@ int main()
     
     cout<<'\n';
     
-   /*  cout<<"Symbols:";
+     cout<<"Symbols:";
 
     for (int i = 0; i < flag_lt; i++)
     {
-        cout<<lt[i];
+        cout<<symbols[i];
     }
     
-    cout<<'\n'; */
+    cout<<'\n'; 
 
 
     return 0;
