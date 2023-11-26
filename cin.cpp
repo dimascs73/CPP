@@ -57,7 +57,8 @@ int main()
         
         else
         {
-        int t = (int)s;
+        int t = static_cast<int>(s);
+
         if (t >= 97 && t <= 122 || t >= 65 && t <= 90)
         {
              cin>>letters[flag_letter];
