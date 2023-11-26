@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 
+void swap (int* arr, int size);
 
 int push_back(int* ar, int &b, int sz) 
 {
@@ -15,24 +16,33 @@ int push_back(int* ar, int &b, int sz)
 }
 void sort (int* s_rt, int sz2)
 {
-    int min = 1'000'000'000;
+    int min = 1000000000;
     while (s_rt[0] != min)
     {
         for (int i = 0; i < sz2-1; i++)
     {
-        
+        swap (s_rt, sz2);
 
-        if (s_rt[i] > s_rt[i+1])
-        {
-            int tmp = s_rt[i+1];
-            s_rt[i+1] = s_rt[i];
-            s_rt[i] = tmp;
-        }
         if (s_rt[i] < min)
         { min = s_rt[i];}         
     }
     }
-}   
+}
+
+void swap (int* arr, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        
+
+        if (arr[i] > arr[i+1])
+        {
+            int tmp = arr[i+1];
+            arr[i+1] = arr[i];
+            arr[i] = tmp;
+        }
+    }
+}
 
 int main()
 {
