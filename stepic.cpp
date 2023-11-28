@@ -6,47 +6,50 @@ using namespace std;
 int main()
 {
    
-    double x = 0;
-    double y = 0;
-    //double eps = 1e-9;
+    int a;
+    int b;
+    int c;
+    int d;
+    int e;
+    int count = 0;
     
-    cin>>x>>y;
+    cin>>a>>b>>c>>d>>e;
     
-    bool up_line = y <= -1.5*x + 7; // справа верх
-    bool down_line = y >= -.5*x + 1; // справа низ
-    bool up_line1 = y >= 1.5*x + 1;  // слева верх
-    bool down_line1 = y >= .5*x - 1; // слева низ
+    int i = a/10;
+    int z = a%10;
     
-  //  double a = 1.5*x + 1;
-  //  double b = -.5*x + 1;
-
-    if (down_line && (up_line && y <= 0))
+    if (i%2 !=0 && z%2 !=0)
     {
-       std::cout<<"Inside"<<'\n';
-     }
-       else std::cout<<"Outside"<<'\n';
-
-        return 0;
+        count +=a;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    i = b/10;
+    z = b%10;
+    
+    if (i%2 !=0 && z%2 !=0)
+    {
+        count +=b;
+    }
+    i = c/10;
+    z = c%10;
+    if (i%2 !=0 && z%2 !=0)
+    {
+        count +=c;
+    }
+    i = d/10;
+    z = d%10;
+    if (i%2 !=0 && z%2 !=0)
+    {
+        count +=d;
+    }
+    i = e/10;
+    z = e%10;
+    
+    if (i%2 !=0 && z%2 !=0)
+    {
+        count +=e;
+    }
+   
+    cout<<count;
+    
+        return 0;
+}
