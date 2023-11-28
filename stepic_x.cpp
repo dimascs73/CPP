@@ -11,12 +11,14 @@ int main()
     
     cin>>x>>y;
     
-    bool inside = x*x+y*y <= 4*4;
-    bool line1 = (x >= 0) ; 
-    bool line2 = (x <= 3) ; 
+    bool inside = x*x+y*y > 3*3;
+    bool outside = x*x+y*y <= 5*5;
+    bool line1 = (x >= 0 && y >= 0) ; 
+    bool line2 = (x <= 0 && y <= 0) ; 
     
 
-    if (inside && line1 && line2)
+    if ((inside && outside && line1) || 
+        (inside && outside && line2))
       {
         std::cout<<"Inside"<<'\n';
       }

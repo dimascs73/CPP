@@ -6,47 +6,28 @@ using namespace std;
 int main()
 {
    
-    double x = 0;
-    double y = 0;
-    //double eps = 1e-9;
+    int a;
+    int b;
+    int c;
     
-    cin>>x>>y;
-    
-    bool up_line = y <= -1.5*x + 7; // справа верх
-    bool down_line = y >= -.5*x + 1; // справа низ
-    bool up_line1 = y >= 1.5*x + 1;  // слева верх
-    bool down_line1 = y >= .5*x - 1; // слева низ
-    
-  //  double a = 1.5*x + 1;
-  //  double b = -.5*x + 1;
+   
+    cin>>a>>b>>c;
+ 
+    int max = a;
+    int pos2 = a;
+    int min = a;
 
-    if (down_line && (up_line && y <= 0))
-    {
-       std::cout<<"Inside"<<'\n';
-     }
-       else std::cout<<"Outside"<<'\n';
+    if (a < b && a < c) { min = a;}
+    if (b < a && b < c) { min = b;}
+    if (c < a && c < b) { min = c;}
+    if ((a > b && a < c) || (a < b && a > c)) {pos2 = a;}
+    if ((b < a && b > c) || (b > a && b < c)) {pos2 = b;}
+    if ((c > a && b > c) || (a > c && b < c)) {pos2 = c;}
+    if (a > b && a > c) { max = a;}
+    if (b > a && b > c) { max = b;}
+    if (c > a && c > b) { max = c;}
+    
+    cout<<min<<' '<<pos2<<' '<<max;
 
         return 0;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
