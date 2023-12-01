@@ -7,28 +7,34 @@ int main(){
   using std::vector;
   
 
-  int i;
+  int j;
+  int u;
   int k;
-  int s;
-  int a;
+  int e;
   int b;
   int c;
+  int d;
 
-  for (i = 1; i < 10; i++)
+  for (j = 1; j < 10; j++)
   {
-    for ( k = 1; k < 10; k++)
+    for ( u = 0; u < 10; u++)
     {
-      for ( s = 1; s < 10; s++)
+      for ( k = 0; k < 10; k++)
       {
-        a = i*100+k*10+s;
-        b = i*100+s*10+k;
-        c = k*100+s*10+i;
-        if(a+b == c)
+        for (e = 1; e < 10; e++)
         {
-          if (i != k && i != s && k != s)  
-          
-           {std::cout<<a<<'+'<<b<<'='<<c; }
-        }
+           
+           b = j*100+u*10+k;
+           c = e*10+j;
+           d = j*10000+j*1000+j*100+j*10+j;
+          if (j != u && j != k && j != e && u != k && u != e && k != e)
+           {
+             if (b*c == d)
+              {
+               std::cout<<j<<u<<k<<'*'<<e<<j<<'='<<j<<j<<j<<j<<j; 
+              }
+           }
+        }   
       }
       
     }
