@@ -1,21 +1,39 @@
 ﻿#include <iostream>
+#include <vector>
+#include <algorithm>
 
+int main(){
 
-
-int main() {
-  
-  int a = 0;
-  int b = 0;
-  int sum = 0;
+  using std::vector;
   
 
-  std::cin>>a>>b;
+  int i;
+  int k;
+  int s;
+  int a;
+  int b;
+  int c;
 
-  for (int i = a; i < b+1; i++)
+  for (i = 1; i < 10; i++)
   {
-     sum +=i;   
+    for ( k = 1; k < 10; k++)
+    {
+      for ( s = 1; s < 10; s++)
+      {
+        a = i*100+k*10+s;
+        b = i*100+s*10+k;
+        c = k*100+s*10+i;
+        if(a+b == c)
+        {
+          if (i != k && i != s && k != s)  
+          
+           {std::cout<<a<<'+'<<b<<'='<<c; }
+        }
+      }
+      
+    }
+    
   }
-  std::cout<<sum<<std::endl;
-  
-  return 0;
-}
+ 
+  return 0;  
+ }

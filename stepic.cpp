@@ -1,52 +1,31 @@
-﻿#include <iostream>
-#include <cmath>
-
+﻿#include <bits/stdc++.h>
 using namespace std;
-
-int main()
+main()
 {
-   
-    double x = 0;
-    double y = 0;
-    //double eps = 1e-9;
-    
-    cin>>x>>y;
-    
-    bool up_line = y <= -1.5*x + 7; // справа верх
-    bool down_line = y >= -.5*x + 1; // справа низ
-    bool up_line1 = y >= 1.5*x + 1;  // слева верх
-    bool down_line1 = y >= .5*x - 1; // слева низ
-    
-  //  double a = 1.5*x + 1;
-  //  double b = -.5*x + 1;
-
-    if (down_line && (up_line && y <= 0))
-    {
-       std::cout<<"Inside"<<'\n';
-     }
-       else std::cout<<"Outside"<<'\n';
-
-        return 0;
+    int a;
+    cin>>a;
+    int cnt=-1,ans=100000;
+    int arr[a];
+    for(int i=0;i<a;i++){
+        cin>>arr[i];
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    for(int i=0;i<a;i++){
+        if(ans>arr[i]){
+            ans=arr[i];
+        }
+        if(cnt<arr[i]){
+            cnt=arr[i];
+        }
+    }
+    for(int i=0;i<a;i++){
+        if(ans==arr[i]){
+            arr[i]=cnt;
+        }
+        else if(cnt==arr[i]){
+            arr[i]=ans;
+        }
+    }
+    for(int i=0;i<a;i++){
+        cout << arr[i] << " " ;
+    }
+}
