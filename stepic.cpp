@@ -13,6 +13,7 @@ int main()
     int v [a][a];
     int fig_i = 0, fig_j = 0;
     int c_i = 0, d_j = 0;
+    int x_i = 0, y_j = 0;
   
     
     
@@ -29,10 +30,16 @@ int main()
     std::cout<<std::endl;
     if (fig_i > fig_j) {
         c_i = fig_i - fig_j;
+        x_i = fig_i + fig_j;
+        
     }
-    else {d_j = fig_j - fig_i;}
+    else {
+        d_j = fig_j - fig_i;
+        y_j = fig_i + fig_j;
+    }
     
     v[c_i][d_j] = 2;
+    v[x_i][y_j] = 2;
     
     
     for (int k = 0; k < a ; k++) {
@@ -42,13 +49,19 @@ int main()
                     c_i++;
                     d_j++;
                     v[c_i][d_j] =2;
+                    x_i++;
+                    y_j--;
+                    v[x_i][y_j] = 2;
                 }
             }
             else if (c_i <= d_j){
                 while (d_j != a-1) {
                     c_i++;
                     d_j++;
-                    v[c_i][d_j] =2;
+                    v[c_i][d_j] = 2;
+                    x_i++;
+                    y_j--;
+                    v[x_i][y_j] = 2;
             
             }
             }
