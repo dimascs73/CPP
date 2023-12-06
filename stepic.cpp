@@ -29,7 +29,12 @@ int main()
     {
         for (int j = 0; j < a; j++)
         {
-            if (abs (i-fig_i) == abs(j - fig_j)) { v[i][j]=2; }
+            if (((abs (i-fig_i) - abs(j - fig_j)) == 1) && (abs (i-fig_i) <= 2) && (abs(j - fig_j) <= 2)
+                 && (abs (i-fig_i) > 1) )
+             { v[i][j]=2; }
+            if (((abs (j-fig_j) - abs(i - fig_i)) == 1) && (abs (i-fig_i) <= 2) && (abs(j - fig_j) <= 2)
+                 && (abs (j-fig_j) > 1) )
+             { v[i][j]=2; } 
         }
         
     }
