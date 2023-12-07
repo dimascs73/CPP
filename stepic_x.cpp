@@ -1,45 +1,61 @@
 ﻿#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <cmath>
 
-int main(){
-
-  using std::vector;
+int binaryToDecimal(int n) 
+{ 
+    int num = n; 
+    int dec_value = 0; 
   
+    // Initializing base value to 
+    // 1, i.e 2^0 
+    int base = 1; 
+  
+    int temp = num; 
+    while (temp) { 
+        int last_digit = temp % 10; 
+        temp = temp / 10; 
+        dec_value += last_digit * base; 
+        base = base * 2; 
+    } 
+  
+    return dec_value; 
+} 
 
-  int j;
-  int u;
-  int k;
-  int e;
-  int b;
-  int c;
-  int d;
-
-  for (j = 1; j < 10; j++)
-  {
-    for ( u = 0; u < 10; u++)
-    {
-      for ( k = 0; k < 10; k++)
-      {
-        for (e = 1; e < 10; e++)
-        {
-           
-           b = j*100+u*10+k;
-           c = e*10+j;
-           d = j*10000+j*1000+j*100+j*10+j;
-          if (j != u && j != k && j != e && u != k && u != e && k != e)
-           {
-             if (b*c == d)
-              {
-               std::cout<<j<<u<<k<<'*'<<e<<j<<'='<<j<<j<<j<<j<<j; 
-              }
-           }
-        }   
-      }
-      
-    }
-    
-  }
+void decToBinary(int n)
+{
+    // Array to store binary number
+    int binaryNum[32];
  
-  return 0;  
- }
+    // Counter for binary array
+    int i = 0;
+    while (n > 0) {
+        // Storing remainder in binary
+        // array
+        binaryNum[i] = n % 2;
+        n = n / 2;
+        i++;
+    }
+ 
+    // Printing binary array in reverse
+    // order
+    for (int j = i - 1; j >= 0; j--)
+        std::cout << binaryNum[j];
+}
+
+int main()
+{
+    
+   int num;
+   int lt = 2;
+   int sum;
+
+   std::cin>> num;
+
+  sum = binaryToDecimal(num)*lt;
+
+   decToBinary(sum);
+    
+
+    return 0;
+}
+
