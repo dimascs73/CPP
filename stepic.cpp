@@ -1,44 +1,55 @@
 ﻿#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <string>
-#include <cmath>
-#include <cstdlib>
+
+#include <cstddef> // size_t
+#include <cstring> // strlen, strcpy
+
+struct String {
+
+    
+	String(const char *str = "")
+    {
+
+        size =std::strlen(str);
+
+        this -> str = new char [size+1];
+
+        for (size_t i = 0; i < size+1; i++)
+        {
+            this -> str[i] = str[i];
+        } 
+
+
+    }
+ 
+ String(size_t n, char c): size(n), str(new char[n+1])
+    {
+        memset(str,c,n);
+        str[size+1] = '\0';
+    }
+
+    
+	~String()
+    {
+        delete[] str;
+    }
+    
+   char & at(size_t idx)       { return str[idx]; }
+    char   at(size_t idx) const { return str[idx]; }
+
+
+	size_t size;
+	char *str;
+};
 
 
 int main()
 {
-    using std::vector;
-    using std::string;
-    
-    string a;
-    string b;
-    long long n = 0;
-    long long m = 0;
-
-
-     std::cin>>a>>b;
-
-     if (a.size() > b.size())
-     {
-        std::cout<<a<<'\n'<<b;
-     }
-     else if (b.size() > a.size())
-     {
-        std::cout<<b<<'\n'<<a;
-     }
-     else if (a.size() == b.size())
-     {
-        n = std::stoll(a);
-        m = std::stoll(b);
-        if (n > m)
-        {
-            std::cout<<a<<'\n'<<b;
-        }
-        else std::cout<<b<<'\n'<<a;
-     }
+   
+    String greet("Hello");
+    char ch1 = greet.at(0); 
      
-     
+    String const const_greet("Hello, Const!");
+    char const &ch2 = const_greet.at(0); 
         
 
     return 0;

@@ -36,3 +36,7 @@
 ehthumbs.db
 Thumbs.db
 *.json
+\.vscode
+*.code*
+CPP*
+.vscode/CPP_Vscode.code-workspace
