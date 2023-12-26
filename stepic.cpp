@@ -1,57 +1,45 @@
 ﻿#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
 #include <cmath>
+#include <cstdlib>
 
 
 int main()
 {
+    using std::vector;
+    using std::string;
     
-    int a = 8;
-    
-    int v [a][a];
-    int fig_i = 0, fig_j = 0;
-    
-  
-    
-    
-    for (int i = 0; i < a; i++) {
-        for (int j = 0;j < a; j++) {
-           std::cin>>v[i][j];
-            if (v[i][j] == 1){
-                fig_i = i;
-                fig_j = j;
-            }
-        }
-    }
-    std::cout<<std::endl;
-    std::cout<<std::endl;
-    
-    for (int i = 0; i < a; i++)
-    {
-        for (int j = 0; j < a; j++)
-        {
-            if (((abs (i-fig_i) - abs(j - fig_j)) == 1) && (abs (i-fig_i) <= 2) && (abs(j - fig_j) <= 2)
-                 && (abs (i-fig_i) > 1) )
-             { v[i][j]=2; }
-            if (((abs (j-fig_j) - abs(i - fig_i)) == 1) && (abs (i-fig_i) <= 2) && (abs(j - fig_j) <= 2)
-                 && (abs (j-fig_j) > 1) )
-             { v[i][j]=2; } 
-        }
-        
-    }
-    
-    v[fig_i][fig_j] = 1;
+    string a;
+    string b;
+    long long n = 0;
+    long long m = 0;
 
-    for (int i = 0; i < a; i++, std::cout<<std::endl)
-    {
-        for (int j = 0; j < a; j++)
+
+     std::cin>>a>>b;
+
+     if (a.size() > b.size())
+     {
+        std::cout<<a<<'\n'<<b;
+     }
+     else if (b.size() > a.size())
+     {
+        std::cout<<b<<'\n'<<a;
+     }
+     else if (a.size() == b.size())
+     {
+        n = std::stoll(a);
+        m = std::stoll(b);
+        if (n > m)
         {
-            std::cout<<v[i][j]<<' ';
+            std::cout<<a<<'\n'<<b;
         }
-    }
-                
-            
-  
+        else std::cout<<b<<'\n'<<a;
+     }
+     
+     
+        
 
     return 0;
 }
-
