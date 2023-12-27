@@ -1,26 +1,56 @@
 ﻿#include <iostream>
-#include <bitset>
-using namespace std;
 
-int subtractBinaries(int x, int y) {
-    while (y != 0) {
-        int borrow = (~x) & y;
-        x = x ^ y;
-        y = borrow << 1;
+#include <cstddef> // size_t
+#include <cstring> // strlen, strcpy
+
+struct String {
+
+    
+	String(const char *str = "")
+    {
+
+        size =std::strlen(str);
+
+        this -> str = new char [size+1];
+
+        for (size_t i = 0; i < size+1; i++)
+        {
+            this -> str[i] = str[i];
+        } 
+
+
     }
-    return x;
-}
+ 
+ String(size_t n, char c): size(n), str(new char[n+1])
+    {
+        memset(str,c,n);
+        str[size+1] = '\0';
+    }
 
-int main() {
+    
+	~String()
+    {
+        delete[] str;
+    }
+    
+   char & at(size_t idx)       { return str[idx]; }
+    char   at(size_t idx) const { return str[idx]; }
 
-  int a;
-  int b = 1;
 
-  cin>>a;
+	size_t size;
+	char *str;
+};
 
-  int bin = subtractBinaries(a, b);
 
-  cout<<bin;
-  
-  return 0;
+int main()
+{
+   
+    String greet("Hello");
+    char ch1 = greet.at(0); 
+     
+    String const const_greet("Hello, Const!");
+    char const &ch2 = const_greet.at(0); 
+        
+
+    return 0;
 }
