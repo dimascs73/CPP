@@ -40,3 +40,8 @@ Thumbs.db
 *.code*
 CPP*
 .vscode/CPP_Vscode.code-workspace
+tempCodeRunnerFile
+stepic.dSYM/Contents/Resources/DWARF/stepic
+stepic.dSYM/Contents/Info.plist
+tempCodeRunnerFile.cpp
+stepic
