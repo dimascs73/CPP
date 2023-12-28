@@ -114,7 +114,8 @@ int i =0;
 		
 	}
 	
-}while (x >1);
+}
+while (x >1);
 cout<<x<<'|'<<endl;
 cout<<"_______"<<endl;
 
