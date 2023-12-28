@@ -25,7 +25,13 @@ struct BinaryOperation : Expression
      */
     BinaryOperation(Expression const * left, char op, Expression const * right)
         : left(left), op(op), right(right)
-    { }
+    {
+        if (op == '+')
+        {
+            left+right
+        }
+        
+    }
 
 private:
     Expression const * left;
