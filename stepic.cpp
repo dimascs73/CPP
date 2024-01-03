@@ -18,7 +18,7 @@ struct Number : Expression
     {
         return value;
     }
-    ~Number(){}
+   // ~Number(){}
 
 private:
     double value;
@@ -57,11 +57,11 @@ struct BinaryOperation : public Expression
        return result; 
     }
 
-    ~BinaryOperation()
+    /*~BinaryOperation()
      {
         delete left;
         delete right;
-    }      
+    } */     
 private:
 
     Expression const* left;
@@ -75,24 +75,44 @@ bool check_equals(Expression const *left, Expression const *right)
     int *l = (int*)left;
     int *r = (int*)right;
     
-    if (*l == 4 && *r == 4)
+    
+    if (*l == *r)
     {
+        std::cout<<l<<" True "<<r;
         return true;
+
     }
-    else return false;
+    
+    else 
+    {
+        std::cout<<l<<" False "<<r;
+        return false;
+    }
 }
 
 
 int main(int argc, char const *argv[])
 {
     
-    Expression* sube = new BinaryOperation(new Number(4.5), '*', new Number(5));
+    //Expression* sube = new BinaryOperation(new Number(5), '*', new Number(5));
+    //Expression * expr = new BinaryOperation(new Number(3), '+', sube);
+    Number a(55);
+    Number b(15);
+    Number e(15);
 
-    Expression * expr = new BinaryOperation(new Number(3), '+', sube);
 
-    std::cout << expr->evaluate() << std::endl;
+    BinaryOperation(&a,'+',&b);
+    BinaryOperation z(&a,'-',&e);
 
-    delete expr;
+
+    check_equals(&a, &b);
+    std::cout<<std::endl;
+
+    check_equals(&b, &z);
+
+    //std::cout << expr->evaluate() << std::endl;
+
+    //delete expr;
 
     return 0;
 }
