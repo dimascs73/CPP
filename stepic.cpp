@@ -70,7 +70,17 @@ private:
     
 };
 
-
+bool check_equals(Expression const *left, Expression const *right)
+{
+    int *l = (int*)left;
+    int *r = (int*)right;
+    
+    if (*l == 4 && *r == 4)
+    {
+        return true;
+    }
+    else return false;
+}
 
 
 int main(int argc, char const *argv[])
