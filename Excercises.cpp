@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+
 class Children
 {
 private:
@@ -14,6 +15,13 @@ public:
   void Set_Data();
   
   void PrintData();
+
+  template <typename T>
+  T Get_Data(&T)
+  {
+  return T;
+  }  
+
 };
 
 
@@ -33,6 +41,7 @@ void Children::PrintData()
  std::cout<<first_name<<"  "<<last_name<<"  "<<age<<'\n';
 }
 
+
 int main()
 {
   Children ch1;
@@ -46,5 +55,7 @@ int main()
 
   ch2.PrintData();
   
+  ch1.Get_Data(std::string& (ch1.last_name));
+
   return 0;
 }
