@@ -1,41 +1,61 @@
 #include <iostream>
 #include <string>
 
-class Tiles
+
+class Children
 {
+private:
+
+  std::string first_name;
+  std::string last_name;
+  int age;
 
 public:
-    std::string brand =  "brand";
-    double size_h = 0.0;
-    double size_w = 0.0;
-    int price = 0;
 
-    Tiles () {}
+  void Set_Data();
+  
+  void PrintData();
 
-    Tiles (std::string(brand), double(size_h), double(size_w), int(price))
-          :brand(brand), size_h(size_h) 
-          ,size_w(size_w), price(price)
-    {
-        
-    }
-    
-    void getData()
-    {
-      std::cout<<brand<<": "<<size_h<<"x"<<size_w<<" - "<<price<<"$"<<'\n';
-    }
+  template <typename T>
+  T Get_Data(&T)
+  {
+  return T;
+  }  
+
 };
 
 
-
-
-
-int main ()
+void Children::Set_Data()
 {
-    Tiles t1  {"brand1", 2.5, 2.5, 500};
-    Tiles t2  {"brand2", 4.5, 1.5, 200};
+  std::cout<<"Enter First Name: ";
+  std::cin>>first_name;
+  std::cout<<"Enter Last Name: ";
+  std::cin>>last_name;
+  std::cout<<"Enter Age: ";
+  std::cin>>age;
 
-    t1.getData();
-    t2.getData();
-    
-    return 0;
+}
+
+void Children::PrintData()
+{
+ std::cout<<first_name<<"  "<<last_name<<"  "<<age<<'\n';
+}
+
+
+int main()
+{
+  Children ch1;
+  Children ch2;
+
+  ch1.Set_Data();
+
+  ch2.Set_Data();
+
+  ch1.PrintData();
+
+  ch2.PrintData();
+  
+  ch1.Get_Data(std::string& (ch1.last_name));
+
+  return 0;
 }
