@@ -1,8 +1,4 @@
-﻿#include <iostream>
-#include <cstddef> // size_t
-#include <cstring> // strlen, strcpy
-
-struct Number;
+﻿struct Number;
 struct BinaryOperation;
 
 struct Visitor {
@@ -20,14 +16,12 @@ struct Expression
 
 struct Number : Expression
 {
-    Number(double value)
-        : value(value)
-    {}
-    double evaluate() const override
-    {
-        return value;
-    }
-    ~Number(){}
+    Number(double value);
+    double evaluate() const;
+
+    double get_value() const { return value; }
+
+    void visit(Visitor * visitor) const { visitor->visitNumber(this); }
 
 private:
     double value;
@@ -35,72 +29,59 @@ private:
 
 struct BinaryOperation : Expression
 {
-    /*
-      Здесь op это один из 4 символов: '+', '-', '*' или '/', соответствующих операциям,
-      которые вам нужно реализовать.
-     */
-    BinaryOperation(Expression const * left, char op, Expression const * right)
-        : left(left), right(right), op(op)
-    {}
-    double evaluate() const override
-    {
-        double result  = left->evaluate();
-        if (op == '+')
-        {
-            result += right->evaluate();
-        }
-        else if (op == '*')
-        {
-            result *= right->evaluate();
-        }
-        else if (op == '-')
-        {
-            result -= right->evaluate();
-        }
-        else if (op == '/' && right->evaluate() !=0)
-        {
-            result /= right->evaluate();
-        }
-        else std::cerr<<"Error";
+    BinaryOperation(Expression const * left, char op, Expression const * right);
+    ~BinaryOperation();
+    double evaluate() const;
 
-       return result; 
-    }
+    Expression const * get_left() const { return left; }
+    Expression const * get_right() const { return right; }
+    char get_op() const { return op; }
 
-    ~BinaryOperation()
-     {
-        delete left;
-        delete right;
-    }      
+    void visit(Visitor * visitor) const { visitor->visitBinaryOperation(this); }
+
 private:
     Expression const * left;
     Expression const * right;
     char op;
-    
 };
 
-bool check_equals(Expression const *left, Expression const *right)
-{
-    int *l = (int*)left;
-    int *r = (int*)right;
+#include <iostream>
+
+/* Этот класс вам нужно реализовать */
+struct PrintVisitor : Visitor {
     
-    if (*l == 4 && *r == 4)
+    void visitNumber(Number const* number)
     {
-        return true;
+        double a = number ->evaluate();
+        if (a < 0)
+        {
+            std::cout<<"("<<a<<")";    
+        }
+        else std::cout<<a;
     }
-    else return false;
-}
 
-
-int main(int argc, char const *argv[])
-{
+    void visitBinaryOperation(BinaryOperation const * bop)
+    {
+        bool is_prev = this->is;  //исходное
+        char c = bop->get_op();
+        bool is_cur = is_prev && (c == '-' || c == '+'); //снаруже * или /, а у нас + или - => нужны скобки
+        if(is_cur)
+            std::cout << "(";
+        
+        
+        this->is = c=='*'||c=='/';   //сообщаем внутрь, что у нас приоритетная операция
+        bop->get_left()->visit(this);
+ 
+        std::cout << c;
+        
+        this->is = c=='*'||c =='/'; //сообщаем внутрь, что у нас приоритетная операция
+        bop->get_right()->visit(this);
+        
+        if(is_cur)
+            std::cout << ")";
+        this->is = is_prev;      //вернем
+    }
+private:
+bool is=false;
     
-    Expression* sube = new BinaryOperation(new Number(4.5), '*', new Number(5));
-
-    Expression * expr = new BinaryOperation(new Number(3), '+', sube);
-
-    std::cout << expr->evaluate() << std::endl;
-
-    delete expr;
-
-    return 0;
-}
+};
