@@ -3,7 +3,7 @@
 
 int main()
 {
-    int a = 8;
+    int a = 8756;
 
     std::cout<<a%10;
     
