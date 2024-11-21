@@ -28,10 +28,24 @@ int main(){
 
 int number = 9;
 vector<int> k{2, 4, 5, 8};
+vector<int> m;
+unordered_map<int, int> value_index;
 
-Solution S;
+    for (int i = 0; i < k.size(); ++i)
+    {       
+    auto it = value_index.find(number - k[i]);
+    if (it != value_index.end())
+    {
+        m.push_back(it->second);
+        m.push_back(i);
+    }
+    value_index[k[i]] = i;
+    }
+for (int i = 0; i < m.size(); ++i)
+{
+    std::cout<<m[i]<<" ";
+}
 
-S.twoSum(k, number);
 
   
 return 0;
