@@ -1,11 +1,32 @@
 ﻿#include <iostream>
-#include<list>
+#include <cmath>
+#include <vector>
+#include <ranges>
+#include <string>
+#include <algorithm>
+#include <windows.h>
+
+using std::vector;
+using std::string;
+namespace rn = std::ranges;
+namespace vu = std::views;
 
 int main()
 {
-    int a = 8756;
+   vector<string> S{"flower", "floor", "flood", "fl0wer",};
+   string a{"flo"}; 
 
-    std::cout<<a%10;
+   string res{};
+ 
+    auto ru = S | vu::filter([&a](string s){ return s.contains(a);});
     
-    return 0;
+    system("cls");
+    
+    for (auto n: ru){
+
+        std::cout<<n<<" ";
+    }
+
+   return 0;
 }
+
