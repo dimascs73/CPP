@@ -18,51 +18,33 @@ public:
         {
             return 1;
         }
-        auto res = nums | vu::filter([val] (int n) {return n != val;});
-                 
+        int size = nums.size();
+        auto res = nums | vu::filter([val] (int n) {return n != val;});         
+        
         int k = 0;
+        vector<int> op;
         for (int a : res){
-        ++k;     
+        ++k;
+        op.push_back(a);     
         }
         if (k == 0){return 0;}
         
-        int tmp = 0;
-        int i = 0;
-        int j = (nums.size() - 1);
-        while ( i <= j )
-        {
-            if (nums[i] == val && nums[j] != val){
-                tmp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = tmp;
-                ++i;
-                --j;
-            }
-            else if (nums[i] == val && nums[j] == val){
-                tmp = nums[i];
-                nums[i] = nums[i+1];
-                nums[i+1] = tmp;
-            }
-            else if (nums[i] != val && nums[j] == val){
-                --j;
-            }
-             else if (nums[i] != val ){
-                 ++i;
-            }
-            else {
-                ++i;
-                --j;}
+        nums.clear();
 
-        }
-
-    return i;  
+        for (int i = 0; i < size; ++i){
+            if(i < k){
+            nums.push_back(std::move(op[i]));
+            }
+            else nums.push_back(val);
+        }       
+    return k;  
     }
 };
 
 int main()
 {
-    vector<int> c{2,2,3};
-    int x = 2;
+    vector<int> c{2,4,4,4,0};
+    int x = 4;
 
     
     Solution M;
@@ -72,6 +54,7 @@ int main()
     for(auto& n: c){
         std::cout<<n<<" ";
     }
+
 
     return 0;
 }
