@@ -1,35 +1,39 @@
 ﻿#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <ranges>
 
 using std::vector;
-using std::unique;
+namespace ranges = std::ranges;
+namespace views =  std::views;
 
 class Solution {
 public:
-    int removeDuplicates(vector<int>& nums) {
-    int j = 1;
-    for (int i = 1; i < nums.size(); ++i){
-        
-        if (nums[i - 1] != nums[j]){
-            nums[j] = nums[i];
-            ++j;
-        }
-        }
-        return j; 
+    int sq_sort(vector<int>& nums) {
+
+
+        auto srt = nums | views::transform([](int a) {return a = abs(a);})
+                        | views::transform([](int a) {return a*a;});
+   
+                        
+
+    for (auto v : srt){
+        std::cout<<v<<" ";
+    }
+        return 0;
     }  
     
 };
 
 int main()
 {
-    vector<int> new_vec{0,0,1,1,1,2,2,3,3,4};
+    vector<int> new_vec{-5, -4, -2, 1, 3, 8};
     
+        
+    Solution S;
 
+    S.sq_sort(new_vec);
 
-    Solution vk;
-
-    vk.removeDuplicates(new_vec);
 
 
 
