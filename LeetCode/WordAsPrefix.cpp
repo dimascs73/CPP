@@ -8,7 +8,7 @@ public:
     int isPrefixOfWord(string sentence, string searchWord) {
         int len = 1;
         if ((sentence.find(searchWord) == string::npos)) {return -1;}
-        else if (sentence.find(searchWord) == 1 && sentence[0] == searchWord[0]) {return len;}
+        if (sentence.find(searchWord) == 1 && sentence[0] == searchWord[0]) {return len;}
         
         for (int i = 1; i < sentence.size(); ++i){
 
@@ -17,9 +17,7 @@ public:
               ++len;
                 
             }
-            
-
-            
+                        
         }
         
       std::cout<<sentence.find(searchWord)<<std::endl;  
@@ -32,7 +30,7 @@ public:
 int main(int argc, char const *argv[])
 {
     string m{"pillow love winstontang i pillow corona you errichto love"};
-    string k{"i"};
+    string k{"pi"};
 
     Solution S;
 
