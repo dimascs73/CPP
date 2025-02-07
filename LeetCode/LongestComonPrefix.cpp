@@ -42,10 +42,6 @@ int main()
     auto res = value | vu::filter([](string n) { 
                          return n.contains("flower");});
                           
-
-    /*auto res = nums | vu::filter([](int n){
-                      return n ? n % 2 == 0: 9;
-    });*/
     
     for (auto n: res){
         std::cout<<n<<" ";

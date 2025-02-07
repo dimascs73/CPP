@@ -47,3 +47,16 @@ tempCodeRunnerFile.cpp
 stepic
 Excercises
 Excercises.dSYM/Contents/Info.plist
+
+# uv generated files #
+######################
+
+*.toml
+*.md
+.ruff_cache
+.venv
+.python=version
+uv.lock
+
+
+/Anna_python
